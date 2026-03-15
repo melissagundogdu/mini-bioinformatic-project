@@ -46,7 +46,7 @@ bash Miniconda3-latest-Linux-x86_64.sh
 
 **2. Clone the repository and place your data:**
 ```bash
-git clone https://github.com/YOUR_USERNAME/mini-bioinformatics-pipeline.git
+git clone https://github.com/melissagundogdu/mini-bioinformatic-project
 cd mini-bioinformatics-pipeline
 mkdir -p data
 cp /path/to/barcode77.fastq data/
@@ -149,15 +149,23 @@ All dependencies are managed automatically via the Conda environment
 
 ---
 
-## 🔍 Interpreting Results
+---
 
-### Quality Thresholds (Oxford Nanopore)
+## 📈 Results — barcode77 Sample
 
-| Metric           | Minimum (Acceptable) | Good      | Excellent |
-|------------------|----------------------|-----------|-----------|
-| Median Q score   | ≥ Q10                | ≥ Q15     | ≥ Q20     |
-| N50 read length  | ≥ 1,000 bp           | ≥ 5,000 bp| ≥ 10,000 bp|
-| GC content       | Matches organism     | Single peak| Tight, symmetric |
+Pipeline was executed on `barcode77.fastq` (Oxford Nanopore, R10.4.1 chemistry).
+
+| Metric                | Value     | Assessment          |
+|-----------------------|-----------|---------------------|
+| Total reads           | 81,011    | ✅ Good coverage    |
+| Median read length    | 547 bp    | ⚠️ Short but normal |
+| N50 read length       | 1,761 bp  | ✅ Sufficient       |
+| Median GC content     | 53.5%     | ✅ Expected range   |
+| Median quality score  | Q17.31    | ✅ Above Q10 threshold |
+
+**Conclusion:** Data quality is sufficient to proceed to alignment with Minimap2 (`map-ont` preset).
+
+---
 
 ### Recommendation Logic
 

@@ -1,9 +1,12 @@
+# Raw sequencing data (too large for git)
 data/*.fastq
 data/*.fastq.gz
+
+# Pipeline outputs (reproducible, not tracked)
+results/
 .snakemake/
+
+# Python cache
 __pycache__/
 *.pyc
-
-# results altındaki ham verileri (csv) yoksay ama grafikleri (plots) tut
-results/*.csv
-results/read_stats.csv
+.DS_Store
