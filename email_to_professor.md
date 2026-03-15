@@ -1,7 +1,7 @@
 ## 📧 Email to Professor Kılıç
 
 **To:** Prof. Kılıç  
-**From:** Bioinformatics Analysis Team  
+**From:** Melissa Gündoğdu  
 **Subject:** Long-Read Sequencing QC Report – barcode77 Results & Recommendation
 
 ---
