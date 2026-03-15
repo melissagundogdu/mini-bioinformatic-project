@@ -1,0 +1,9 @@
+data/*.fastq
+data/*.fastq.gz
+.snakemake/
+__pycache__/
+*.pyc
+
+# results altındaki ham verileri (csv) yoksay ama grafikleri (plots) tut
+results/*.csv
+results/read_stats.csv

@@ -23,50 +23,32 @@ OUTDIR   = config["output_dir"]
 # ---------------------------------------------------------------------------
 rule all:
     input:
-        # NanoPlot QC report
-        expand("{outdir}/nanoplot/{sample}/NanoPlot-report.html", outdir=OUTDIR, sample=SAMPLE),
-        # Custom per-read statistics CSV
-        expand("{outdir}/read_stats/{sample}_read_stats.csv",     outdir=OUTDIR, sample=SAMPLE),
-        # Visualisation plots
-        expand("{outdir}/plots/{sample}_gc_content.png",          outdir=OUTDIR, sample=SAMPLE),
-        expand("{outdir}/plots/{sample}_read_length.png",         outdir=OUTDIR, sample=SAMPLE),
-        expand("{outdir}/plots/{sample}_mean_quality.png",        outdir=OUTDIR, sample=SAMPLE),
-        # Summary statistics text file
-        expand("{outdir}/plots/{sample}_summary_stats.txt",       outdir=OUTDIR, sample=SAMPLE),
-
-
+        "results/nanoplot/barcode77/barcode77NanoPlot-report.html",
+        expand("{outdir}/read_stats/{sample}_read_stats.csv",  outdir=OUTDIR, sample=SAMPLE),
+        expand("{outdir}/plots/{sample}_gc_content.png",       outdir=OUTDIR, sample=SAMPLE),
+        expand("{outdir}/plots/{sample}_read_length.png",      outdir=OUTDIR, sample=SAMPLE),
+        expand("{outdir}/plots/{sample}_mean_quality.png",     outdir=OUTDIR, sample=SAMPLE),
+        expand("{outdir}/plots/{sample}_summary_stats.txt",    outdir=OUTDIR, sample=SAMPLE),
+        
 # ---------------------------------------------------------------------------
 # Rule 1: NanoPlot – long-read specific QC
 # ---------------------------------------------------------------------------
 rule nanoplot_qc:
-    """
-    Run NanoPlot on the raw FASTQ file to produce an HTML QC report.
-    NanoPlot is purpose-built for Oxford Nanopore long-read data.
-    """
     input:
-        fastq = FASTQ
+        "data/barcode77.fastq"
     output:
-        report = f"{OUTDIR}/nanoplot/{SAMPLE}/NanoPlot-report.html"
-    params:
-        outdir = f"{OUTDIR}/nanoplot/{SAMPLE}",
-        prefix = SAMPLE
-    conda:
-        "config/conda_env.yml"
-    threads: 4
+        "results/nanoplot/barcode77/barcode77NanoPlot-report.html"
     log:
-        f"{OUTDIR}/logs/nanoplot_{SAMPLE}.log"
+        "results/logs/nanoplot_barcode77.log"
+    threads: 1
     shell:
         """
-        mkdir -p {params.outdir}
-        NanoPlot \
-            --fastq {input.fastq} \
-            --outdir {params.outdir} \
-            --prefix {params.prefix} \
-            --threads {threads} \
-            --plots dot \
-            --N50 \
-            --title "{SAMPLE} NanoPlot QC" \
-            > {log} 2>&1
+        mkdir -p results/nanoplot/barcode77
+        NanoPlot --fastq {input} \
+                 --outdir results/nanoplot/barcode77 \
+                 --prefix barcode77 \
+                 --threads {threads} \
+                 --title "barcode77 NanoPlot QC" 2> {log}
         """
 
 

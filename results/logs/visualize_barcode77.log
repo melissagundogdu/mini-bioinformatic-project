@@ -1,0 +1,35 @@
+2026-03-15 14:45:16 [INFO] Loading statistics from: results/read_stats/barcode77_read_stats.csv
+2026-03-15 14:45:16 [INFO] Loaded 81,011 reads.
+2026-03-15 14:45:16 [INFO] Summary statistics saved → results/plots/barcode77_summary_stats.txt
+2026-03-15 14:45:16 [INFO] Saved GC content plot → results/plots/barcode77_gc_content.png
+2026-03-15 14:45:17 [INFO] Saved read length plot → results/plots/barcode77_read_length.png
+2026-03-15 14:45:17 [INFO] Saved quality score plot → results/plots/barcode77_mean_quality.png
+2026-03-15 14:45:17 [INFO] All visualisations complete.
+============================================================
+  LONG-READ QC SUMMARY STATISTICS
+============================================================
+  Total reads analysed : 81,011
+
+  GC Content (%)
+    Mean   :        53.00
+    Median :        53.53
+    Std    :         7.10
+    Min    :        14.97
+    Max    :        73.40
+
+  Read Length (bp)
+    Mean   :     1,038.24
+    Median :       547.00
+    Std    :     2,995.92
+    Min    :        86.00
+    Max    :   686,155.00
+    N50    :        1,761
+
+  Mean Quality Score
+    Mean   :        17.90
+    Median :        17.31
+    Std    :         8.27
+    Min    :         2.75
+    Max    :        38.84
+
+============================================================
