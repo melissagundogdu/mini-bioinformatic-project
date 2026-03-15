@@ -69,4 +69,4 @@ Suggested next step: align reads against the reference genome using **Minimap2**
 with the `map-ont` preset, which is optimized for Oxford Nanopore data.
 
 Kind regards,  
-Bioinformatics Analysis Team
+Melissa Gündoğdu
